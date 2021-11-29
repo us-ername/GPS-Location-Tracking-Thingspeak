@@ -9,9 +9,11 @@ while (m.Logging == 1)
   %[lat,lon] = poslog(m); 
   lat = m.latitude; 
   lon= m.longitude; 
+  
+  user = 1;
 
   disp(lat); 
   disp(lon); 
 
-  thingSpeakWrite(1588067,[lat, lon],'WriteKey','2U35DEMER57BQD1I'); 
+  thingSpeakWrite(1588067,[lat, lon, user],'WriteKey','2U35DEMER57BQD1I'); 
 end 
