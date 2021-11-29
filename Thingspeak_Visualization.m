@@ -7,14 +7,26 @@ lon = data(2);
 disp(lat);
 disp(lon);
 
-%Central Location - McMaster
-cy = -79.9212;
-cx = 43.2629;
+%lon = mapData[1];
+
+%Central Location
+clon = -79.9212;
+clat = 43.2629;
 
 %Change in coordinates
-mapData.Latitude = [cx lat];
-mapData.Longitude = [cy lon];
+mapData.Latitude = [clat lat];
+mapData.Longitude = [clon lon];
+
+distancem_x= (lon - clon);
+distancem_y= (lat - clat);
+disp(distancem_x);
+disp(distancem_y);
 
 %Geo plot location
-geoscatter(mapData.Latitude,mapData.Longitude,'r');
-geobasemap('satellite');
+if (distancem_x < abs(0.01081081081)|| distancem_y < abs(0.01081081081))
+    geoscatter(mapData.Latitude,mapData.Longitude,'r');
+    geobasemap('satellite');
+else
+    geoscatter(mapData.Latitude,mapData.Longitude,'b');
+    geobasemap('satellite');
+end
